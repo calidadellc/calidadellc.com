@@ -5,56 +5,105 @@
 <meta property="og:title" content="Your agency's numbers, in your inbox every Monday">
 <meta property="og:description" content="Weekly reports for Los Angeles home care agencies, built from the software you already use.">
 <meta property="og:url" content="https://calidadellc.com/">
+<meta property="og:image" content="https://calidadellc.com/report-preview.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231f2a33'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='18' font-weight='700' fill='white' text-anchor='middle'%3EC%3C/text%3E%3C/svg%3E">
 <style>
-body{margin:0;background:#f4f5f7;color:#1f2a33;font:16px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
-.wrap{max-width:720px;margin:0 auto;padding:40px 16px 56px}
-.brand{font-weight:600;font-size:15px;letter-spacing:.02em;color:#55606b}
-h1{font-size:28px;line-height:1.25;margin:18px 0 10px}
-.lead{font-size:17px;color:#3a4650;margin:0}
-.card{background:#fff;border:1px solid #e3e6ea;border-radius:10px;padding:20px 22px;margin-top:20px}
-h2{font-size:17px;margin:0 0 10px}
+:root{--ink:#1f2a33;--muted:#55606b;--soft:#6b7680;--line:#e3e6ea;--bg:#f4f5f7;--accent:#c4553f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.02em}
+.mark{width:28px;height:28px;border-radius:7px;background:var(--ink);color:#fff;display:grid;place-items:center;font-size:15px}
+nav a.contact{color:var(--muted);text-decoration:none;font-size:15px}
+.hero{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;align-items:center;padding:36px 0 56px}
+.eyebrow{font-size:13px;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:.06em;margin:0 0 12px}
+h1{font-size:42px;line-height:1.12;margin:0 0 18px;letter-spacing:-.01em}
+.lead{font-size:18px;color:#3a4650;margin:0}
+.btns{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;padding:12px 20px;border-radius:8px;font-weight:600}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid #c9ced4}
+.small{font-size:14px;color:var(--soft);margin:14px 0 0}
+.shot{display:block;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:0 18px 40px rgba(31,42,51,.14);background:#fff}
+.shot img{display:block;width:100%;height:auto}
+.cap{font-size:13px;color:var(--soft);margin-top:10px;text-align:center}
+section{padding:8px 0 48px}
+h2{font-size:26px;margin:0 0 20px;letter-spacing:-.01em}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.item{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px}
+.item b{display:block;margin-bottom:4px}
+.item span{color:var(--muted);font-size:15px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:s}
+.step{background:#fff;border:1px solid var(--line);border-radius:10px;padding:20px}
+.step:before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--ink);color:#fff;font-weight:700;font-size:14px;margin-bottom:12px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:22px}
+.card h3{margin:0 0 12px;font-size:18px}
 table{width:100%;border-collapse:collapse;font-size:15px}
-th{text-align:left;font-size:12px;color:#6b7680;font-weight:600;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid #e3e6ea;padding:6px 8px}
-td{border-bottom:1px solid #f0f2f4;padding:8px;vertical-align:top}
-ol{margin:0;padding-left:20px} li{margin:6px 0}
-.btns{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px}
-.btn{display:inline-block;background:#1f2a33;color:#fff;text-decoration:none;padding:10px 16px;border-radius:8px;font-weight:600}
-.btn.alt{background:#fff;color:#1f2a33;border:1px solid #c9ced4}
-.note{font-size:14px;color:#55606b;margin:10px 0 0}
+th{text-align:left;font-size:12px;color:var(--soft);font-weight:600;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid var(--line);padding:6px 8px}
+td{border-bottom:1px solid #f0f2f4;padding:9px 8px;vertical-align:top}
+td.k{color:var(--soft);white-space:nowrap;width:1%}
 .tag{display:inline-block;font-size:12px;font-weight:600;background:#e8f1e9;color:#24613a;border-radius:6px;padding:2px 8px;margin-left:6px}
+.note{font-size:14px;color:var(--soft);margin:12px 0 0}
+.final{background:var(--ink);color:#fff;border-radius:14px;padding:36px;text-align:center;margin-bottom:40px}
+.final h2{color:#fff;margin-bottom:8px}
+.final p{color:#cfd6dc;margin:0 0 20px}
+.final .btn{background:#fff;color:var(--ink)}
 a{color:#1f4f86}
-footer{font-size:13px;color:#8a949e;margin-top:32px;text-align:center}
-@media (max-width:520px){h1{font-size:24px} .card{padding:16px 14px} table{font-size:14px}}
-</style></head><body><div class="wrap">
-<div class="brand">CALIDADE LLC</div>
+footer{font-size:13px;color:#8a949e;padding:0 0 36px;text-align:center}
+@media (max-width:860px){
+ .hero{grid-template-columns:1fr;gap:32px;padding-top:16px}
+ h1{font-size:32px}
+ .steps,.two{grid-template-columns:1fr}
+ .final{padding:28px 20px}
+}
+</style></head><body>
+<div class="wrap">
+<nav><div class="brand"><div class="mark">C</div>CALIDADE LLC</div><a class="contact" href="mailto:aman@calidadellc.com">aman@calidadellc.com</a></nav>
+
+<div class="hero">
+<div>
+<p class="eyebrow">For Los Angeles home care agencies</p>
 <h1>Your agency's numbers, in your inbox every Monday.</h1>
-<p class="lead">For non-medical home care agencies in Los Angeles. We turn the exports from your scheduling and payroll software into one weekly report you can read in 5 minutes. You keep the software you have. There's nothing new to log into.</p>
+<p class="lead">We turn the exports from your scheduling and payroll software into one weekly report you can read in 5 minutes. You keep the software you have. There's nothing new to log into.</p>
 <div class="btns">
-<a class="btn" href="/sample/">See a sample report</a>
-<a class="btn alt" href="mailto:aman@calidadellc.com?subject=My%203%20answers&amp;body=1.%20Scheduling%20and%20payroll%20software%20we%20use%3A%0A%0A2.%20What%20we%20track%20today%20(and%20where)%3A%0A%0A3.%20The%20one%20number%20I%20wish%20I%20had%20every%20Monday%3A%0A">Get my free plan</a>
+<a class="btn" href="mailto:aman@calidadellc.com?subject=My%203%20answers&amp;body=1.%20Scheduling%20and%20payroll%20software%20we%20use%3A%0A%0A2.%20What%20we%20track%20today%20(and%20where)%3A%0A%0A3.%20The%20one%20number%20I%20wish%20I%20had%20every%20Monday%3A%0A">Get my free plan</a>
+<a class="btn alt" href="/sample/">See the full sample report</a>
+</div>
+<p class="small">Free one-page plan in 2 business days. No sales calls.</p>
+</div>
+<div>
+<a class="shot" href="/sample/"><img src="/report-preview.jpg" width="1400" height="816" alt="Top of a sample weekly report: hours worked, hours lost, missed shifts, overtime, and three things to do this week"></a>
+<p class="cap">The top of a sample report. The agency and numbers are made up.</p>
+</div>
 </div>
 
-<div class="card"><h2>What the report shows</h2>
-<table>
-<tr><th>Section</th><th>The question it answers</th></tr>
-<tr><td>Hours scheduled vs. worked</td><td>Where are we losing billable time?</td></tr>
-<tr><td>Open and missed shifts</td><td>How often are clients left uncovered?</td></tr>
-<tr><td>Overtime by caregiver</td><td>Who is working too many hours, and what does it cost?</td></tr>
-<tr><td>Caregiver warning signs</td><td>Who might quit next?</td></tr>
-<tr><td>Profit per hour by client</td><td>Which clients make money and which lose it?</td></tr>
-</table></div>
+<section>
+<h2>What the report shows</h2>
+<div class="grid">
+<div class="item"><b>Hours scheduled vs. worked</b><span>Where are we losing billable time?</span></div>
+<div class="item"><b>Open and missed shifts</b><span>How often are clients left uncovered?</span></div>
+<div class="item"><b>Overtime by caregiver</b><span>Who is working too many hours, and what does it cost?</span></div>
+<div class="item"><b>Caregiver warning signs</b><span>Who might quit next?</span></div>
+<div class="item"><b>Profit per hour by client</b><span>Which clients make money and which lose it?</span></div>
+<div class="item"><b>3 things to do this week</b><span>The report ends with what to act on, by name or ID.</span></div>
+</div>
+</section>
 
-<div class="card"><h2>How it works</h2>
-<ol>
-<li>Click <b>Get my free plan</b> above. It opens an email with 3 questions: your software, what you track today, and the one number you wish you had every Monday.</li>
-<li>Within 2 business days you get a one-page plan for your agency and a sample report. Both are free and yours to keep.</li>
-<li>If you want to go ahead, we build it from read-only exports in 2 to 3 weeks. After that it arrives every Monday.</li>
-</ol>
-<p class="note">Everything happens by email. No sales calls, no demos to book.</p></div>
+<section>
+<h2>How it works</h2>
+<div class="steps">
+<div class="step"><p>Click <b>Get my free plan</b>. It opens an email with 3 questions: your software, what you track today, and the one number you wish you had every Monday.</p></div>
+<div class="step"><p>Within 2 business days you get a one-page plan for your agency and a sample report. Both are free and yours to keep.</p></div>
+<div class="step"><p>If you want to go ahead, we build it from read-only exports in 2 to 3 weeks. After that it arrives every Monday.</p></div>
+</div>
+</section>
 
-<div class="card"><h2>Pricing</h2>
+<section>
+<div class="two">
+<div class="card"><h3>Pricing</h3>
 <table>
 <tr><th>Plan</th><th>Setup</th><th>Monthly</th></tr>
 <tr><td>Founding<span class="tag">First 3 agencies</span></td><td>$1,500</td><td>$350</td></tr>
@@ -62,16 +111,23 @@ footer{font-size:13px;color:#8a949e;margin-top:32px;text-align:center}
 </table>
 <p class="note">Month to month. No contract. Cancel by email any time.</p></div>
 
-<div class="card"><h2>Your data</h2>
+<div class="card"><h3>Your data</h3>
 <table>
-<tr><td>Access</td><td>Read-only exports. We never change anything in your systems.</td></tr>
-<tr><td>Privacy</td><td>Clients and caregivers appear by ID or first name only.</td></tr>
-<tr><td>Storage</td><td>Files are encrypted at rest.</td></tr>
-<tr><td>HIPAA</td><td>If your agency is HIPAA-covered, we sign a Business Associate Agreement before we touch any data.</td></tr>
+<tr><td class="k">Access</td><td>Read-only exports. We never change anything in your systems.</td></tr>
+<tr><td class="k">Privacy</td><td>Clients and caregivers appear by ID or first name only.</td></tr>
+<tr><td class="k">Storage</td><td>Files are encrypted at rest.</td></tr>
+<tr><td class="k">HIPAA</td><td>If your agency is HIPAA-covered, we sign a Business Associate Agreement first.</td></tr>
 </table></div>
+</div>
+</section>
 
-<div class="card"><h2>Questions</h2>
-<p style="margin:0">Email Aman at <a href="mailto:aman@calidadellc.com">aman@calidadellc.com</a>. You'll get a reply within 1 business day.</p></div>
+<div class="final">
+<h2>See what your Monday report would look like.</h2>
+<p>Answer 3 questions by email. You'll get a free plan for your agency within 2 business days.</p>
+<a class="btn" href="mailto:aman@calidadellc.com?subject=My%203%20answers&amp;body=1.%20Scheduling%20and%20payroll%20software%20we%20use%3A%0A%0A2.%20What%20we%20track%20today%20(and%20where)%3A%0A%0A3.%20The%20one%20number%20I%20wish%20I%20had%20every%20Monday%3A%0A">Get my free plan</a>
+</div>
 
-<footer>Calidade LLC · 26787 Agoura Rd, Ste E8 PMB 1027 · Calabasas, CA 91302</footer>
-</div></body></html>
+<footer>Calidade LLC · 26787 Agoura Rd, Ste E8 PMB 1027 · Calabasas, CA 91302 · <a href="mailto:aman@calidadellc.com">aman@calidadellc.com</a></footer>
+</div>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "f69d96ba5a2b43f48945d257b4cd7150"}'></script>
+</body></html>
